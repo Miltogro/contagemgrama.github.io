@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #container {
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Calculadora de Grama</h1>
+        <input type="number" id="largura" placeholder="Digite a largura do canteiro em metros">
+        <input type="number" id="comprimento" placeholder="Digite o comprimento do canteiro em metros">
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+    function calcular() {
+        var largura = document.getElementById('largura').value;
+        var comprimento = document.getElementById('comprimento').value;
+
+        var area_canteiro = largura * comprimento;
+        var area_tapete = 0.4 * 0.6;
+        var tapetes_necessarios = area_canteiro / area_tapete;
+        var metros_necessarios = tapetes_necessarios / 4;
+
+        document.getElementById('resultado').innerHTML = "Para cobrir um canteiro de " + largura + "m x " + comprimento + "m, você precisará de " + metros_necessarios.toFixed(2) + " metros de grama.";
+    }
+    </script>
+
+</body>
+</html>
